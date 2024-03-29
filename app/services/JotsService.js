@@ -1,6 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Jot } from "../models/Jot.js"
-
+import { loadState, saveState } from "../utils/Store.js"
 
 class JotsService {
 
@@ -9,6 +9,7 @@ class JotsService {
         console.log('new jot!', newJot)
         AppState.jots.push(newJot)
         AppState.jotCount++
+        this.saveJots()
     }
 
     deleteJot(id) {
@@ -17,6 +18,7 @@ class JotsService {
         AppState.jots.splice(foundJot, 1)
         console.log(AppState.jots)
         AppState.jotCount--
+        this.saveJots()
 
     }
 
@@ -25,6 +27,7 @@ class JotsService {
         // console.log('setting active jot in the service', jot)
         AppState.activeJot = foundJot
         // console.log(AppState.activeJot)
+        this.saveJots()
     }
 
     updateBody(bodyText) {
@@ -34,7 +37,17 @@ class JotsService {
         changedJot.body = bodyText.text
         changedJot.updatedTime = new Date()
         // console.log('new body:', changedJot)
+        this.saveJots()
+    }
 
+    saveJots() {
+        saveState('jots', AppState.jots)
+    }
+
+    loadJots() {
+        const localStorageJots = loadState('jots', [Jot])
+        AppState.jots = localStorageJots
+        AppState.jotCount = AppState.jots.length
     }
 }
 

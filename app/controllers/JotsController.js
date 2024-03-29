@@ -11,6 +11,10 @@ export class JotsController {
         console.log('JotsController loaded');
         this.drawActiveJot()
         this.drawJotList()
+        AppState.on('activeJot', this.drawActiveJot)
+        AppState.on('jots', this.drawJotList)
+        AppState.on('jotCount', this.drawJotTitle)
+        jotsService.loadJots()
     }
 
     drawJotTitle() {
@@ -46,7 +50,7 @@ export class JotsController {
         // console.log(activeJot)
         console.log('jots before service', AppState.jots)
         jotsService.setActiveJot(id)
-        this.drawActiveJot()
+        // this.drawActiveJot()
     }
 
     createNewJot() {
@@ -59,17 +63,21 @@ export class JotsController {
         jotsService.createNewJot(newJotData)
         // @ts-ignore
         form.reset()
-        this.drawJotList()
-        this.drawJotTitle()
+        // this.drawJotList()
+        // this.drawJotTitle()
     }
 
     deleteJot(id) {
+        const deleteConfirmation = window.confirm("are you sure you want to delete this jot?")
+        if (deleteConfirmation == false) {
+            return
+        }
         console.log('deleting jot with id', id)
         jotsService.deleteJot(id)
         AppState.activeJot = null
-        this.drawActiveJot()
-        this.drawJotList()
-        this.drawJotTitle()
+        // this.drawActiveJot()
+        // this.drawJotList()
+        // this.drawJotTitle()
     }
 
     updateBody() {
