@@ -1,6 +1,6 @@
 <section class="container-fluid">
     <section class="row">
-        <div class="col-3">
+        <div class="col-3 border border-dark m-2">
             <div class="row">
                 <h4 id="jots-title">Your Jots</h4>
             </div>
@@ -11,7 +11,7 @@
             </div>
             <div class="row p-1">
                 <form onsubmit="app.JotsController.createNewJot()">
-                    <div class="input-group">
+                    <div class="border border-dark rounded input-group">
                         <input class="form-control" type="text" name="name" placeholder="create jot" id="name" required
                             minlength="3" maxlength="15">
                         <input type="color" name="color" class="from-control form-control-color">
@@ -20,7 +20,7 @@
                 </form>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-8 border border-dark m-2">
             <div id="active-jot" class="row">
                 <!-- <div class="col-3">
                     <h4>Jot Title goes here</h4>
