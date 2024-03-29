@@ -62,6 +62,15 @@ export class JotsController {
         this.drawJotTitle()
     }
 
+    deleteJot(id) {
+        console.log('deleting jot with id', id)
+        jotsService.deleteJot(id)
+        AppState.activeJot = null
+        this.drawActiveJot()
+        this.drawJotList()
+        this.drawJotTitle()
+    }
+
     updateBody() {
         event.preventDefault()
         let textAreaContent = event.target

@@ -9,6 +9,14 @@ class JotsService {
         console.log('new jot!', newJot)
         AppState.jots.push(newJot)
         AppState.jotCount++
+    }
+
+    deleteJot(id) {
+        let foundJot = AppState.jots.findIndex(jot => jot.id == id)
+        console.log('found jot with index', foundJot)
+        AppState.jots.splice(foundJot, 1)
+        console.log(AppState.jots)
+        AppState.jotCount--
 
     }
 

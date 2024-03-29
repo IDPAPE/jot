@@ -29,7 +29,7 @@ export class Jot {
         <form onsubmit="app.JotsController.updateBody()" id="jot-body">
             <textarea name="text" id="jot-body" class="jot-body">${this.body}</textarea>
             <button type="submit" class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
-            <button type="button" class="btn border border-dark my-1" onclick="deleteJot('${this.id}')"><i class="mdi mdi-delete"></i></button>
+            <button type="button" class="btn border border-dark my-1" onclick="app.JotsController.deleteJot('${this.id}')"><i class="mdi mdi-delete"></i></button>
         </div>
 
         
