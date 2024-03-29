@@ -1,3 +1,4 @@
+import { AppState } from "../AppState.js"
 import { generateId } from "../utils/GenerateId.js"
 
 
@@ -7,7 +8,7 @@ export class Jot {
         this.name = data.name
         this.createdTime = data.createdTime
         this.updatedTime = data.updatedTime
-        this.body = data.body
+        this.body = ''
         this.color = data.color
 
     }
@@ -18,19 +19,19 @@ export class Jot {
     }
     get GetActiveJot() {
         return `
-        <div class="col-3">
-            <h4>${this.name}</h4>
+        <div class="col-2">
+            <h4 style="color: ${this.color}">${this.name}</h4>
             <p>${this.createdTime}</p>
             <p>${this.updatedTime}</p>
             <p>word/characters goes here</p>
          </div>
-        <div class="col-8">
-            <textarea name="" id="" class="w-100 h-100">${this.body}</textarea>
+        <div class="col-10">
+        <form onsubmit="app.JotsController.updateBody()" id="jot-body">
+            <textarea name="text" id="jot-body" class="jot-body">${this.body}</textarea>
+            <button type="submit" class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
+            <button type="button" class="btn border border-dark my-1" onclick="deleteJot('${this.id}')"><i class="mdi mdi-delete"></i></button>
         </div>
-        <div class="col-1">
-            <button class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
-            <button class="btn border border-dark my-1"><i class="mdi mdi-delete"></i></button>
-        </div>
+
         
         
         `
