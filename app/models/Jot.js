@@ -8,7 +8,7 @@ export class Jot {
         this.name = data.name
         this.createdTime = data.createdTime == undefined ? new Date() : new Date(data.createdTime)
         this.updatedTime = data.updatedTime == undefined ? new Date() : new Date(data.updatedTime)
-        this.body = ''
+        this.body = data.body || ''
         this.color = data.color
 
     }
