@@ -12,9 +12,9 @@
             <div class="row p-1">
                 <form onsubmit="app.JotsController.createNewJot()">
                     <div class="input-group">
-                        <input class="form-control" type="text" name="jot-title" placeholder="create jot" id="jot-title"
-                            required minlength="3" maxlength="15">
-                        <input type="color" class="from-control form-control-color">
+                        <input class="form-control" type="text" name="name" placeholder="create jot" id="name" required
+                            minlength="3" maxlength="15">
+                        <input type="color" name="color" class="from-control form-control-color">
                         <button type="submit" class="btn"><i class="mdi mdi-plus"></i></button>
                     </div>
                 </form>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-9">
             <div id="active-jot" class="row">
-                <div class="col-3">
+                <!-- <div class="col-3">
                     <h4>Jot Title goes here</h4>
                     <p>created d/t goes here</p>
                     <p>updated d/t goes here</p>
@@ -36,7 +36,7 @@
                 <div class="col-1">
                     <button class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
                     <button class="btn border border-dark my-1"><i class="mdi mdi-delete"></i></button>
-                </div>
+                </div> -->
             </div>
         </div>
 

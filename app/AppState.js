@@ -12,7 +12,8 @@ class ObservableAppState extends EventEmitter {
       name: 'exampleJot',
       createdTime: Date(),
       updatedTime: Date(),
-      body: 'Note text goes here'
+      body: 'Note text goes here',
+      color: '#000000'
 
 
     })
