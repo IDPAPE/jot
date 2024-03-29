@@ -1,0 +1,45 @@
+<section class="container-fluid">
+    <section class="row">
+        <div class="col-3">
+            <div class="row">
+                <h4>Title goes here</h4>
+            </div>
+            <div id="jots-list" class="row">
+                <h5 class="text-color-insertColor">Jots will go here</h5>
+                <h5 class="text-color-insertColor">second jot will go here</h5>
+                <h5 class="text-color-insertColor">third jot will go here</h5>
+            </div>
+            <div class="row p-1">
+                <form onsubmit="app.JotsController.createNewJot()">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="jot-title" placeholder="create jot" id="jot-title"
+                            required minlength="3" maxlength="15">
+                        <input type="color" class="from-control form-control-color">
+                        <button type="submit" class="btn"><i class="mdi mdi-plus"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-9">
+            <div id="active-jot" class="row">
+                <div class="col-3">
+                    <h4>Jot Title goes here</h4>
+                    <p>created d/t goes here</p>
+                    <p>updated d/t goes here</p>
+                    <p>word/characters goes here</p>
+                </div>
+                <div class="col-8">
+                    <textarea name="" id="" class="w-100 h-100">
+
+                    </textarea>
+                </div>
+                <div class="col-1">
+                    <button class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
+                    <button class="btn border border-dark my-1"><i class="mdi mdi-delete"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</section>
