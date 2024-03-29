@@ -32,7 +32,9 @@ class JotsService {
         let changedJot = AppState.jots.find(jot => jot.id == AppState.activeJot.id)
         // console.log('changing the body of', changedJot)
         changedJot.body = bodyText.text
+        changedJot.updatedTime = new Date()
         // console.log('new body:', changedJot)
+
     }
 }
 

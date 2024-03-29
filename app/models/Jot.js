@@ -6,8 +6,8 @@ export class Jot {
     constructor(data) {
         this.id = generateId()
         this.name = data.name
-        this.createdTime = data.createdTime
-        this.updatedTime = data.updatedTime
+        this.createdTime = data.createdTime == undefined ? new Date() : new Date(data.createdTime)
+        this.updatedTime = data.updatedTime == undefined ? new Date() : new Date(data.updatedTime)
         this.body = ''
         this.color = data.color
 
@@ -21,8 +21,8 @@ export class Jot {
         return `
         <div class="col-2">
             <h4 style="color: ${this.color}">${this.name}</h4>
-            <p>${this.createdTime}</p>
-            <p>${this.updatedTime}</p>
+            <p>${this.GetCreatedTime}</p>
+            <p>${this.GetUpdatedTime}</p>
             <p>word/characters goes here</p>
          </div>
         <div class="col-10">
@@ -31,9 +31,13 @@ export class Jot {
             <button type="submit" class="btn border border-dark my-1"><i class="mdi mdi-content-save"></i></button>
             <button type="button" class="btn border border-dark my-1" onclick="app.JotsController.deleteJot('${this.id}')"><i class="mdi mdi-delete"></i></button>
         </div>
-
-        
-        
         `
+    }
+    get GetCreatedTime() {
+        return `${this.createdTime.toLocaleDateString()}, ${this.createdTime.toLocaleTimeString()}`
+    }
+
+    get GetUpdatedTime() {
+        return `${this.updatedTime.toLocaleDateString()}, ${this.updatedTime.toLocaleTimeString()}`
     }
 }

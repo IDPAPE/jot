@@ -22,6 +22,7 @@ export class JotsController {
         let activeJotContent = ''
 
         if (jot == null) {
+            setHTML('active-jot', '')
             return
         } else {
             // console.log('its not null!')
